@@ -152,7 +152,11 @@ function vitePluginManusDebugCollector(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
 
+// Use VITE_BASE_PATH env var for GitHub Pages deployment (e.g. /aleadinc-clone/)
+const base = process.env.VITE_BASE_PATH || '/';
+
 export default defineConfig({
+  base,
   plugins,
   resolve: {
     alias: {
